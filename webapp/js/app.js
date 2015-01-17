@@ -4,7 +4,7 @@
 
 console.log('app.js exec');
 
-var root = require('./root.jsx');
+var root = require('./react/index.jsx');
 
 root.init(document.getElementsByClassName('react-wrapper')[0]);
 
