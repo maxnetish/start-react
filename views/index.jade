@@ -3,7 +3,11 @@ extends layout
 block content
     h1= title
     p Welcome to #{title}
-    div.react-wrapper
+    p
+        a(href="/react") Reactjs application
+    p
+        a(href="/ko") Knockout application
+    //div.react-wrapper
 
 block script-bundles
     script(defer, src="js/app.js")

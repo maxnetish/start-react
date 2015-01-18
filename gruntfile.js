@@ -21,12 +21,14 @@ module.exports = function (grunt) {
                     debug: true
                 }
             },
-            'public/js/app.js': ['webapp/js/app.js']
+            'public/js/app-react.js': ['webapp/js/app-react.js'],
+            'public/js/app-ko.js': ['webapp/js/app-ko.js']
         },
         uglify: {
             buildAll: {
                 files: {
-                    'public/js/app.min.js': ['public/js/app.js']
+                    'public/js/app-react.min.js': ['public/js/app-react.js'],
+                    'public/js/app-ko.min.js': ['public/js/app-ko.js']
                 }
             },
             options: {

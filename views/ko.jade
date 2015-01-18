@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    div.ko-wrapper
+        p
+            a(href="http://knockoutjs.com/") Knockout
+            span &nbsp;lib works here
+        p
+            button(type="button", data-bind="click: addElements") Add elements
+            input(type="text", data-bind="textInput: elementsToAddNumber")
+            button(type="button", data-bind="click: clearList") Clear list
+        p
+            span Render time:&nbsp;
+            b.label(data-bind="text: renderTime") 0
+            span &nbsp;ms,&nbsp;
+            span request time:&nbsp;
+            b.label(data-bind="text: requestTime") 0
+            span &nbsp;ms
+        p
+            span Articles list length:&nbsp;
+            b.label(data-bind="text: articlesLength") 0
+        div(data-bind="foreach: { data: articles, as: 'article'}")
+            article.article
+                h4.article-title(data-bind="text: article.title")
+                p.article-content(data-bind="text: article.content")
+                button(type="button", data-bind="click: $parent.removeArticle") Remove article
+
+
+block script-bundles
+    script(defer, src="js/app-ko.js")
+
