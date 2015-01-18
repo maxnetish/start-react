@@ -12,7 +12,8 @@ var ArticlesList = React.createClass({
         }
 
         return <div>
-            Articles list length: {this.props.articles && this.props.articles.length}
+            <p>Articles list length: <b className="label">{this.props.articles && this.props.articles.length}</b>
+            </p>
         {articleNodes}
         </div>;
     }
