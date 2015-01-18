@@ -12,7 +12,7 @@ var ArticlesList = React.createClass({
         }
 
         return <div>
-            Artiles list here: {this.props.articles && this.props.articles.length}
+            Articles list length: {this.props.articles && this.props.articles.length}
         {articleNodes}
         </div>;
     }
