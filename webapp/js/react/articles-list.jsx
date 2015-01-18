@@ -8,7 +8,7 @@ var ArticlesList = React.createClass({
 
         for (ind = 0, indLen = this.props.articles.length; ind < indLen; ind++) {
             currentArticle = this.props.articles[ind];
-            articleNodes.push(<Article title={currentArticle.title} content={currentArticle.content} key={currentArticle.key}/>);
+            articleNodes.push(<Article title={currentArticle.title} content={currentArticle.content} key={currentArticle.key} articleKey={currentArticle.key} removeArticle={this.props.removeArticle}/>);
         }
 
         return <div>
