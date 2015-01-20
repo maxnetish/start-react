@@ -20,7 +20,11 @@ var Hello = React.createClass({
             <button type="button" onClick={this.addLipsum}>Add elements</button>
             <input type="text" value={this.state.numberToAdd} onChange={this.onNumberChange} />
             <button type="button" onClick={this.clearArticles}>Clear list</button>
-            <p>Render time: <b className="label">{this.state.renderTime}</b> ms, request time: <b className="label">{this.state.requestTime}</b> ms</p>
+            <p>Render time:&nbsp;
+                <b className="label">{this.state.renderTime}</b>
+            &nbsp;ms, request time:&nbsp;
+                <b className="label">{this.state.requestTime}</b>
+            &nbsp;ms</p>
             <ArticlesList articles={this.state.articles} removeArticle={this.removeArticle}/>
         </div>;
     },
@@ -36,10 +40,12 @@ var Hello = React.createClass({
                 self.setState({
                     articles: resources.articles
                 });
-                t2 = Date.now();
-                self.setState({
-                    renderTime: t2 - t1
-                });
+                setTimeout(function () {
+                    t2 = Date.now();
+                    self.setState({
+                        renderTime: t2 - t1
+                    });
+                }, 0);
             }, function (err) {
                 console.log(err);
             });

@@ -22,13 +22,27 @@ module.exports = function (grunt) {
                 }
             },
             'public/js/app-react.js': ['webapp/js/app-react.js'],
-            'public/js/app-ko.js': ['webapp/js/app-ko.js']
+            'public/js/app-ko.js': ['webapp/js/app-ko.js'],
+            'public/js/app-ng.js': ['webapp/js/app-ng.js']
+        },
+        concat: {
+            buildNg: {
+                src: [
+                    nodeModules + '/angular/angular.js',
+                    'public/js/app-ng.js'
+                ],
+                dest: 'public/js/app-ng.js',
+                options: {
+                    sourceMap: true
+                }
+            }
         },
         uglify: {
             buildAll: {
                 files: {
                     'public/js/app-react.min.js': ['public/js/app-react.js'],
-                    'public/js/app-ko.min.js': ['public/js/app-ko.js']
+                    'public/js/app-ko.min.js': ['public/js/app-ko.js'],
+                    'public/js/app-ng.min.js': ['public/js/app-ng.js']
                 }
             },
             options: {
@@ -67,5 +81,5 @@ module.exports = function (grunt) {
     });
 
     require('load-grunt-tasks')(grunt);
-    grunt.registerTask('default', ['clean', 'browserify', 'uglify', 'less', 'copy']);
+    grunt.registerTask('default', ['clean', 'browserify', 'concat', 'uglify', 'less', 'copy']);
 };

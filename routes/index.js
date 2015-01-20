@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', {title: 'React vs knockout'});
+    res.render('index', {title: 'React vs knockout vs angular'});
 });
 
 router.get('/react', function (req, res) {
@@ -14,6 +14,10 @@ router.get('/react', function (req, res) {
 
 router.get('/ko', function (req, res) {
     res.render('ko', {title: 'Ko'});
+});
+
+router.get('/ng', function(req, res){
+   res.render('ng', {title: 'Ng'});
 });
 
 router.get('/lipsum', function (req, res, next) {

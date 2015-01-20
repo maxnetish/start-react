@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    div.ng-wrapper(ng-app="listApp", ng-controller="listController")
+        p
+            a(href="https://angularjs.org/", target="_blank") Angular
+            span &nbsp;lib works here
+        p
+            button(type="button", ng-click="addElements()") Add elements
+            input(type="text", ng-model="elementsToAddNumber")
+            button(type="button", ng-click="clearList()") Clear list
+        p
+            span Render time:&nbsp;
+            b.label(ng-bind="renderTime") 0
+            span &nbsp;ms,&nbsp;
+            span request time:&nbsp;
+            b.label(ng-bind="requestTime") 0
+            span &nbsp;ms
+        p
+            span Articles list length:&nbsp;
+            b.label(ng-bind="articlesLength()") 0
+        div
+            article.article(ng-repeat="article in articles", repeat-complete="onRepeatComplete()")
+                h4.article-title(ng-bind="article.title")
+                p.article-content(ng-bind="article.content")
+                button(type="button", ng-click="removeArticle(article)") Remove article
+
+block script-bundles
+    script(defer, src="js/app-ng.js")
